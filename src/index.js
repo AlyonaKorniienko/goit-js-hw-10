@@ -16,6 +16,10 @@ input.addEventListener('input', debounce(search, DEBOUNCE_DELAY));
 function search(e) {
   e.preventDefault();
   const inputData = input.value.trim();
+  if (inputData === '') {
+    clear();
+    return;
+  }
   fetchCountries(inputData).then(renderСountryList).catch(console.log);
 }
 
